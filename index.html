@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="assets/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Lobster|Pacifico|Permanent+Marker" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <title>Project-1></title>
+
+
+</head>
+
+<body>
+    <div class='div-wrapper'>
+        <div class='beforesignin-page'>
+            <div class='video-container'>
+                <video loop autoplay class='background-video'>
+                    <source src="assets/movie_website_smallestsize.mp4" type="video/mp4" />
+                </video>
+            </div>
+            <h1 id='title'>Surfprise Me</h1>
+            <!-- put everything user should see before loggin in or signing up -->
+            <form action="/action_page.php" style="border:1px solid #ccc">
+                <p class='text' id='form-header'>Sign In Or Create An Account.</p>
+                <hr>
+
+                <label for="email">
+                    <b>Email</b>
+                </label>
+                <input type="text" placeholder="Enter Email" name="email" id="emailtext" required>
+
+                <label for="psw">
+                    <b>Password</b>
+                </label>
+                <input type="password" placeholder="Enter Password" name="psw" id="passwordtext" required>
+
+                <div class="clearfix">
+                    <button type="button" class="cancelbtn" id='signin'>Sign In </button>
+                    <button type="submit" class="signupbtn" id='signup'>Sign Up</button>
+                </div>
+            </form>
+            <div class='button-wrap'>
+                <button id='pause'>pause</button>
+                <button id='play'>play</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="aftersignin-page">
+        <!-- put everything user should see after having logged in -->
+        <!-- dealing with user location, will shift html around later most likely -->
+        <!--  -->
+        <a class="weatherwidget-io" href="https://forecast7.com/en/43d65n79d38/toronto/" data-label_1="TORONTO" data-label_2="WEATHER"
+            data-theme="original">TORONTO WEATHER</a>
+        <script>
+            !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');
+        </script>
+        <!-- end weather widget -->
+        <div class="clearfix">
+            <button type="submit" class="signupbtn" id='logout'>Log Out</button>
+        </div>
+        <div id="gift">
+            <i class="fas fa-gift">
+                <i class="fas fa-music"></i>
+                <i class="fas fa-utensils"></i>
+                <i class="fas fa-futbol"></i>
+            </i>
+        </div>
+        <button id="suprise-me">Surfprise Me </button>
+        <!-- <button onclick="renderPage('signup');">Go to sign up page</button> -->
+
+        <div id="answer-div">
+        </div>
+
+        <button id="next-option">
+            <i class="fas fa-arrow-circle-right"></i>
+        </button>
+
+    </div>
+
+
+    <div id="overlay">
+        <div class='clearfix'>
+            <div id="text">
+                <p>We created this web-application having in-mind all the people that can't seem to come up and decide on plans,
+                    including ourselves. With this project we aim to provide you with an event that's around you and save
+                    you some thinking and decision power.</p>
+                <p>This app uses your location to find events happening near you. The search gives events that are only happening
+                    after the moment of the search. You will only receive events that are active. In other words, events
+                    happening in the very near future. We provide you with the event title, address, as well as the event
+                    start (time and day).
+                </p>
+                <p>Please find our Github accounts below:
+                    <li>
+                        <a href='https://github.com/andretqt'>André Torquati</a>
+                    </li>
+                    <li>
+                        <a href='https://github.com/MJ3132'>Martin Jarrin</a>
+                    </li>
+                </p>
+                <p>Truly yours,
+                </p>
+                <p>Martin and Andre</p>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div>About</div>
+        </footer>
+    </div>
+
+ 
+            
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjU4tP9cgPggLk_lGUSzkwW75GgrsyLCY&callback=initMap">
+    </script>
+    <script src="assets/main.js"></script>
+   
+</body>
+
+</html>
