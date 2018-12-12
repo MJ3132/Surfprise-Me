@@ -89,6 +89,7 @@ form {
 
     position: relative;
     opacity: 0.8;
+    margin: 2% auto;
  
     
     }
@@ -321,5 +322,28 @@ background:red;
 
   }
 
+
+  @media only screen and (max-width: 600px) {
+
+#logout{
+    float: none;
+    margin:2px auto;
+    width: 100%;
+}
+
+#suprise-me{
+    width: 100%;
+}
+
+#pause {
+display: none;
+}
+
+#play {
+   display: none;
+}
+
+
+  }
 
 

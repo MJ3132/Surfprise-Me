@@ -2,11 +2,11 @@ let userLocation;
 var geocoder;
 
 var video = $('.background-video');
-function runVideo(){
+function runVideo() {
     video.get(0).play();
 };
 
-$( window ).ready(function runVideo(){
+$('body').hover(function () {
     video.get(0).play();
 });
 
@@ -126,6 +126,8 @@ signUpBtn.on("click", function (event) {
             // ...
         });
 });
+
+// logout button
 logOutBtn.on('click', function (event) {
     event.preventDefault();
     firebase.auth().signOut();
@@ -155,11 +157,11 @@ firebase.auth().onAuthStateChanged(function (user) {
     }
 });
 
-//Next Button
+//Next Event Button
 
 $('#next-option').on('click', function () {
     var counter = 0;
-    var activePost = $('.post.active')
+    var activePost = $('.post.active');
     var nextActivePost = activePost.next();
     activePost.removeClass('active');
     if (nextActivePost.length > 0) {
@@ -168,7 +170,7 @@ $('#next-option').on('click', function () {
     } else {
         activePost.siblings().first().addClass('active');
     }
-     updateActivePostWithAddress();
+    updateActivePostWithAddress();
     // End Next Button   
 
 })
@@ -212,8 +214,11 @@ $("#suprise-me").on("click", function () {
         });
         console.log(content);
         var html = "";
+
         for (var i = 0; i < content.length; i++) {
+            //ternary operator
             var postHTML = ` 
+        
                 <div class="post${i === 0 ? " active" : ""}">
                     <input type='hidden' value='${content[i].location.lat}' name='lat'>
                     <input type='hidden' value='${content[i].location.lng}' name='lng'>
@@ -223,7 +228,7 @@ $("#suprise-me").on("click", function () {
                     <h2 class="post-description">Type:${content[i].labels}</h2>
                     <h2 class="post-location"></h2>
                     <input type='hidden' value='${content[i].start}' name='start'.
-                    <h2 class="post-start">${content[i].start}</h2>
+                    <h2 class="post-start"></h2>
 
                 </div>
             `;
@@ -241,13 +246,18 @@ function updateActivePostWithAddress() {
     //get active post
     var activePost = $('.post.active');
     // Change date formats
-    var startTime = activePost.find("input[name ='start']").val();
-    var changedStart = moment(startTime).format('MMMM Do YYYY, h:mm a');
-    activePost.find(".post-start").text(changedStart);
+    var startTime = activePost.find("input[name='start']").val();
+    console.log(startTime);
+    let changedStart = moment(startTime).format('MMMM Do YYYY, h:mm:ss a');
+
+    activePost.find('.post-start').text(changedStart);
     console.log(changedStart);
 
+
     // change Time Duration
-    // var duration = activePost.find("input[class ='post-duration']").val();
+    // var duration = activePost.find('.post-s  tart').val();
+
+    // console.log(duration);
     // var formattedDur = moment.utc(duration*1000).format('H:mm');
     // activePost.find('.post-duration').text(formattedDur);
 
@@ -263,6 +273,7 @@ function updateActivePostWithAddress() {
         if (status === 'OK') {
             if (results[0]) {
                 activePost.find('.post-location').text(results[0].formatted_address);
+                
 
             } else {
                 window.alert('No results found');
@@ -294,31 +305,29 @@ function renderPage(page) {
 
 //video background
 var video = $('.background-video');
-function runVideo(){
+function runVideo() {
     video.get(0).play();
 };
 function pauseVideo() {
-  video.get(0).pause();  
+    video.get(0).pause();
 };
 
-$('#play').on('click', function(e) 
-    {
+$('#play').on('click', function (e) {
     runVideo();
     console.log('play');
 }
 );
-$('#pause').on('click', function(e) 
-    {
+$('#pause').on('click', function (e) {
     pauseVideo();
     console.log('pause');
 }
 );
 //doing the footer stuff rn
-$('footer').on('click',function(e) {
+$('footer').on('click', function (e) {
     console.log('waddup');
     document.getElementById('overlay').style.display = "block";
 });
-$('#overlay').on('click',function(e) {
+$('#overlay').on('click', function (e) {
     console.log('waddup');
     document.getElementById('overlay').style.display = "none";
 });
